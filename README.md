@@ -1,1 +1,1 @@
-# poc-node-red-azure-ad
+# pocs-node-red
