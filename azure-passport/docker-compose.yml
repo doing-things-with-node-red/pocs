@@ -1,0 +1,23 @@
+version: '3.1'
+services:
+
+  node-red-azure:
+    build: image
+    ports: ["8080:1880"]
+    volumes:
+      - shared-context-volume:/usr/src/node-red
+      - D:\workspace\github.com\ymedlop-red\pocs-node-red\azure-passport\image\src:/data
+    networks:
+      - node-red-net
+    user: root:root
+    environment:
+      AZURE_CLIENT_ID: ${CLIENT_ID}
+      AZURE_CLIENT_SECRET: ${CLIENT_SECRET}
+      AZURE_TENANT: ${TENANT}
+      AZURE_TEST_USER: ${TEST_USER}
+
+volumes:
+  shared-context-volume:
+
+networks:
+  node-red-net:
